@@ -2,13 +2,16 @@
   - name: create_instance
     hosts: localhost
     gather_facts: true
+    vars: 
+       ec2_vpc_subnet_id: ''
+    
     
     tasks:
      - name: start an instance with a public IP address
        amazon.aws.ec2_instance:
          name: "gonzalo_instance1"
          key_name: "id_rsa"
-         vpc_subnet_id: "Gonzalo-subnet"
+         vpc_subnet_id: "{{ ec2_vpc_subnet_id }}"
          instance_type: t2.2xlarge
          security_group: default
          network:

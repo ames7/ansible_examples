@@ -4,6 +4,7 @@
     gather_facts: true
     vars: 
        ec2_vpc_subnet_id: ''
+       ami_id: ''
     
     
     tasks:
@@ -16,7 +17,7 @@
          security_group: default
          network:
            assign_public_ip: true
-         image_id: RHEL-7.9_HVM-20211005-x86_64-0-Access2-GP2
+         image_id: "{{ ami_id }}"
          region: us-east-1
          tags:
            Environment: Testing

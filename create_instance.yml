@@ -14,5 +14,6 @@
          network:
            assign_public_ip: true
          image_id: RHEL-7.9_HVM-20211005-x86_64-0-Access2-GP2
+         region: us-east-1
          tags:
            Environment: Testing

@@ -5,14 +5,14 @@
     
   tasks:
    - name: start an instance with a public IP address
-  amazon.aws.ec2_instance:
-    name: "gonzalo_instance1"
-    key_name: "id_rsa"
-    vpc_subnet_id: "Gonzalo-subnet"
-    instance_type: t2.2xlarge
-    security_group: default
-    network:
-      assign_public_ip: true
-    image_id: RHEL-7.9_HVM-20211005-x86_64-0-Access2-GP2
-    tags:
-      Environment: Testing
+     amazon.aws.ec2_instance:
+       name: "gonzalo_instance1"
+       key_name: "id_rsa"
+       vpc_subnet_id: "Gonzalo-subnet"
+       instance_type: t2.2xlarge
+       security_group: default
+       network:
+         assign_public_ip: true
+       image_id: RHEL-7.9_HVM-20211005-x86_64-0-Access2-GP2
+       tags:
+         Environment: Testing

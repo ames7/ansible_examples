@@ -1,0 +1,22 @@
+---
+- host: localhost
+  name: satellite_subscribe
+  become: yes
+  gather_facts: false
+  vars:
+    var_activation_key:
+    var_org_id:
+    var_pool_ids:
+  
+  tasks: 
+    - name: subscribe_satellite
+      community.general.redhat_subscription:
+        state: present
+        activationkey: "{{ var_activation_key }}"
+        org_id: "{{ var_org_id }}"
+        pool_ids: "{{ var_pool_ids }}"
+      register: sat_output
+      
+    - name: log satout
+      debug: 
+        var: sat_output

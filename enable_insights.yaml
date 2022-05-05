@@ -1,0 +1,18 @@
+---
+- host: localhost
+  name: enable_insights
+  become: yes
+  gather_facts: false
+    
+  tasks:
+    - name: start_insights_service
+      ansible.builtin.service:
+        name: insights-client
+        state: started
+
+    - name: enable_insights_service
+      ansible.builtin.service:
+        name: insights-client
+        enabled: yes
+
+

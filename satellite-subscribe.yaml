@@ -1,0 +1,20 @@
+--—
+- hosts: localhost
+  name: satellite_register
+  become: yes
+  gather_facts: false
+  vars:
+    var_activation_key: ' '
+
+  tasks:
+    - name: aws-satellite-subscribe
+      community.general.redhat_subscription:
+        state: present
+        activationkey: "{{ var_activation_key }}"
+        org_id: "{{ var_org_id }}"
+        pool_ids: "{{ var_pool_id }}"
+      register: sat_output
+
+    - name: log satout
+      debug:
+        var: sat_output
